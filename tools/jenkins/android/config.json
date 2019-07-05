@@ -1,0 +1,19 @@
+{
+	"platform": "android",
+	"autoCompile": true,
+	"actualPlatform": "android",
+	"apiLevel": "android-28",
+	"appABIs": [],
+	"debug": true,
+	"embedWebDebugger": false,
+	"keystoreAlias": "",
+	"keystoreAliasPassword": "",
+	"keystorePassword": "",
+	"keystorePath": "",
+	"previewHeight": "720",
+	"previewWidth": "1280",
+	"sourceMaps": false,
+	"template": "link",
+	"useDebugKeystore": true,
+	"vsVersion": "auto"
+}

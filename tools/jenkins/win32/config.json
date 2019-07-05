@@ -1,0 +1,5 @@
+{
+    "platform": "win32",
+    "debug": false,
+    "autoCompile": true
+}
