@@ -363,9 +363,10 @@ class Builder(object):
         shutil.rmtree(targetDir,True) #删除发布目录里的东西
         publishZipFile = os.path.join(targetDir,"%s.zip" % self.mVersion)
         publishDir = os.path.join(targetDir,self.mVersion)
-        os.makedirs(publishDir)
+        os.makedirs(targetDir)
         self.mTargetDir = targetDir
         if self.isPlatform("wechatgame"):
+            os.makedirs(publishDir)
             res = os.path.join(buildDir,"res")
             if os.path.exists(res):
                 shutil.move(os.path.join(buildDir,"res"),publishDir)
@@ -373,12 +374,14 @@ class Builder(object):
             # 上传代码到微信后台，也可以到git发布库中手动上传
             # self.runbat(BAT_WX_UPLOAD_CODE.format(prodir=os.path.join(buildDir,self.mBuildArgs["platform"]),version=self.mVersion))
         elif self.isNativeChannel():
+            os.makedirs(publishDir)
             if self.isChannel("android"):
                 apkFile = self.getBinFilePath()
                 shutil.copyfile(apkFile,os.path.join(publishDir,"%s.apk" % self.mVersion))
             manifestFile = os.path.join(self.mCurrentPath, "version.manifest")
             shutil.copyfile(manifestFile,os.path.join(publishDir, "version.manifest"))
         elif self.isHotChannel(): #android/ios热更
+            os.makedirs(publishDir)
             self.runbat(BAT_HOT_BUILD.format(
                 server="%s%s/" % (self.mUpdateServer,self.mChannel), version=self.mVersion, 
                 resdir=buildDir, outdir=publishDir, filepath=os.path.join(self.mCurrentPath,"version_generator.js")))
