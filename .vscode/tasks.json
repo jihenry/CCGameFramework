@@ -1,0 +1,57 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "compile",
+            "command": "curl",
+            "args": [
+                "http://localhost:7456/update-db"
+            ],
+            "type": "shell",
+            "isBackground": true
+        },
+        {
+            "label": "tslint",
+            "command": "tslint",
+            "args": [
+                "--config",
+                "tslint.json",
+                "--project",
+                "tsconfig.json"
+            ],
+            "type": "shell",
+            "isBackground": true,
+            "problemMatcher": [
+                "$tslint5"
+            ]
+        },
+        {
+            "label": "disable-pre-commit",
+            "command": "mv",
+            "args": [
+                ".git/hooks/pre-commit",
+                ".git/hooks/pre-commit.bak"
+            ],
+            "type": "shell",
+            "isBackground": true,
+            "problemMatcher": [
+                "$tslint5"
+            ]
+        },
+        {
+            "label": "enable-pre-commit",
+            "command": "mv",
+            "args": [
+                ".git/hooks/pre-commit.bak",
+                ".git/hooks/pre-commit"
+            ],
+            "type": "shell",
+            "isBackground": true,
+            "problemMatcher": [
+                "$tslint5"
+            ]
+        }
+    ]
+}
