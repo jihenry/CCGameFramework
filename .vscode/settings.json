@@ -1,6 +1,8 @@
 {
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
     "editor.formatOnSave": true,
     "typescript.referencesCodeLens.enabled": true,
     "files.trimTrailingWhitespace": true,
     "typescript.implementationsCodeLens.enabled": true,
+    "typescript.tsdk": "C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\typescript\\lib"
 }
